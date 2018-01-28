@@ -1,0 +1,6 @@
+<view class="audio-player">
+  <audio wx:if="{{src}}" src="{{src}}" id="myAudio" controls loop name="录音文件" author="我的" bind:ended="end" bind:error="error"></audio>
+  <button type="primary" bind:tap="play">播放</button>
+  <text>{{src}}</text>
+  <text>{{error}}</text>
+</view>

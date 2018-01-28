@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <text class="user-motto">{{title}}</text>
+    <input type="text" bindinput="setTitle" />
+  </view>
+</view>

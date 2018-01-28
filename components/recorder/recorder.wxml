@@ -1,0 +1,5 @@
+<view class="audio-player-container">
+  <view class="recorder-start" bind:tap="recordStart" wx:if="{{!recordStatus}}"></view>
+  <view class="recorder-end" bind:tap="recordEnd" wx:else></view>
+
+</view>

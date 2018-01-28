@@ -1,0 +1,5 @@
+<view class="container">
+  <recorder bind:stop="getRecorder"></recorder>
+  <button type="primary" bind:tap="play">播放</button>
+  <text>{{src}}</text>
+</view>
