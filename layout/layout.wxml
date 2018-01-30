@@ -1,0 +1,10 @@
+<view class="layout page__hd">
+  <view class="weui-tabbar top-1-px weui__desc">
+    <navigator url="/pages/product/list">
+      首页
+    </navigator>
+    <navigator url="/pages/order/list">
+      订单
+    </navigator>
+  </view>
+</view>

@@ -1,14 +1,19 @@
 {
   "pages":[
+    "pages/product/list",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test/index",
-    "pages/recorder/index"
+    "pages/recorder/index",
+    "pages/order/list"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "清峰侠的专属小程序",
     "navigationBarTextStyle":"black"
+  },
+  "usingComponents": {
+    "layout": "layout/layout"
   }
 }

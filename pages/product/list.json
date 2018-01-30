@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "layout": "../../layout/layout"
+  }
+}
