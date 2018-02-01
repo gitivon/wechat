@@ -1,0 +1,11 @@
+.weui-btn {
+  margin-top: 0;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.row > view,
+.row > text {
+  flex: 1;
+}

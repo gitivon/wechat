@@ -1,0 +1,103 @@
+<view class="page">
+    <view class="page__hd">
+      <view class="page__title">编辑商品</view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-cells ">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" 
+              placeholder="请输入商品名称" focus 
+              bind:blur="setValue" 
+              data-key="title"
+              value="{{product.title}}"
+            />
+          </view>
+          <view class="weui-cell__ft">
+            <icon type="warn" size="23" color="#E64340"></icon>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells ">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">SKU</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" 
+              placeholder="请输入SKU" 
+              bind:blur="setValue" 
+              data-key="sku"
+              value="{{product.sku}}"
+            />
+          </view>
+          <view class="weui-cell__ft">
+            <icon type="warn" size="23" color="#E64340"></icon>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells ">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <textarea 
+              class="weui-textarea" 
+              placeholder="请输入商品描述" 
+              auto-height 
+              value="{{product.description}}" 
+              data-key="description"
+              bind:blur="setValue"
+            />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">图片上传</view>
+                <view class="weui-uploader__info">{{product.pic.length}}/?</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{product.pic}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                      <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <upload-photo bind:success="choosePhoto"></upload-photo>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells ">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">
+            上架
+          </view>
+          <view class="weui-cell__ft">
+            <switch class="weui-input" 
+              bind:change="setValue" 
+              data-key="status"
+              checked="{{product.status}}"
+            />
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="page__ft">
+
+      <button class="weui-btn" type="primary" bind:tap="save">保存</button>
+    </view>
+  </view>

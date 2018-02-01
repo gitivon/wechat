@@ -1,0 +1,8 @@
+.page__title {
+  display: flex;
+  flex-direction: row;
+  
+}
+.kind-list__item.disabled {
+  background-color: #f0f0f0;
+}
