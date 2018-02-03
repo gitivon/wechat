@@ -10,7 +10,7 @@
           </view>
           <view class="weui-cell__bd">
             <input class="weui-input" 
-              placeholder="请输入商品名称" focus 
+              placeholder="请输入商品名称" 
               bind:blur="setValue" 
               data-key="title"
               value="{{product.title}}"
@@ -65,6 +65,14 @@
                 <view class="weui-uploader__title">图片上传</view>
                 <view class="weui-uploader__info">{{product.pic.length}}/?</view>
               </view>
+              <view class="weui-progress" wx:if="{{progress && progress < 100}}" style="margin-bottom: 5px;">
+                <view class="weui-progress__bar">
+                  <progress percent="{{progress}}" stroke-width="3" />
+                </view>
+                <!-- <view class="weui-progress__opr">
+                  <icon type="cancel" size="22"></icon>
+                </view> -->
+              </view>
               <view class="weui-uploader__bd">
                 <view class="weui-uploader__files" id="uploaderFiles">
                   <block wx:for="{{product.pic}}" wx:key="*this">
@@ -73,7 +81,7 @@
                     </view>
                   </block>
                 </view>
-                <upload-photo bind:success="choosePhoto"></upload-photo>
+                <upload-photo bind:success="choosePhoto" bind:progress="progress"></upload-photo>
               </view>
             </view>
           </view>

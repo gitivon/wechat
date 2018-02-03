@@ -1,11 +1,16 @@
-import Product from '../../models/Product';
+import Product from '../../models/Product'
+import Shop from '../../models/Shop'
 
 Page({
   data: {
+    shop: {},
     lists: [],
     editable: true
   },
   getLists () {
+    // 获取商铺信息
+    Shop.getById(1).then(shop => this.setData({ shop }))
+    // 获取商品列表
     Product.all().then(lists => this.setData({ lists }))
   },
   onLoad () {

@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/order/list",
     "pages/product/list",
     "pages/product/item",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test/index",
     "pages/recorder/index",
-    "pages/order/list",
     "example/index",
     "example/button/button",
     "example/list/list",
@@ -38,7 +38,10 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/product/list",
-      "text": "HOME"
+      "text": "首页"
+    },{
+      "pagePath": "pages/order/list",
+      "text": "订单"
     },{
       "pagePath": "example/index",
       "text": "DEMO"

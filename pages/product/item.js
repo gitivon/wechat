@@ -2,7 +2,8 @@ import Product from '../../models/Product'
 
 Page({
   data: {
-    product: new Product()
+    product: new Product(),
+    progress: 0
   },
   onLoad (options) {
     Product.get(options.id).then(data => {
@@ -25,9 +26,14 @@ Page({
   },
   choosePhoto ({ detail }) {
     // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-    this.data.product.pic = this.data.product.pic.concat(detail)
+    this.data.product.pic = this.data.product.pic ? this.data.product.pic.concat(detail) : detail
     this.setData({
       product: this.data.product
+    })
+  },
+  progress ({ detail }) {
+    this.setData({
+      progress: detail.progress
     })
   },
   save () {
