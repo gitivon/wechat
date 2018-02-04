@@ -1,5 +1,5 @@
 import Bmob from '../lib/bmob'
-import Server from '../models/Server'
+import { http } from '../lib/http'
 
 export default class User extends Bmob {
 
@@ -34,8 +34,8 @@ export default class User extends Bmob {
         success: res => {
           console.log(res)
           const user = new this(res.userInfo)
-          user.login().then(({ sessionKey, openId }) => {
-            console.log(sessionKey, openId)
+          user.login().then((res) => {
+            console.log(res)
             resolve(user)
           })
         },
@@ -47,11 +47,19 @@ export default class User extends Bmob {
     }))
   }
 
+  /**
+   * 用户发起登录
+   * @return 3rd_sessionId 请保存到 cookie 中
+   */
   login () {
     return new Promise((success, fail) => {
       wx.login({ 
         success: ({ code }) => {
-          Server.getSession(code).then(success, fail)
+          console.log(code)
+          http({
+            url: 'http://weapp.me/weapp/session',
+            data: { code }
+          }).then(success, fail)
         },
         fail 
       })
